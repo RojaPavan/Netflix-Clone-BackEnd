@@ -1,13 +1,17 @@
 const mongoose = require("mongoose");
-
-const userSchema = new mongoose.Schema({
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-    max: 50,
+const userSchema = new mongoose.Schema(
+  {
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+      max: 50,
+    },
+    likedMovies: Array,
   },
-  likedMovies: Array,
-});
+  {
+    timestamps: true,
+  }
+);
 
 module.exports = mongoose.model("users", userSchema);
